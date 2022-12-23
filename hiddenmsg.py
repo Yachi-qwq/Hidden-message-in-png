@@ -16,7 +16,6 @@ def browseFiles():
         while byte != "":
             str = str + byte
             byte = f.read(1)
-        #print(str)
         text_label.insert(1.0, f"{str}")
     finally:
         f.close()
@@ -34,13 +33,8 @@ def browseFiles_txt():
         while byte != "":
             str = str + byte
             byte = f.read(1)
-        #print(str)
-        #text_label.insert(1.0, f"{str}")
         with open(os.path.join(os.path.expanduser('~'), 'Desktop', 'output.txt'), mode='w', encoding="utf8") as fh:
-
-                    #output = open('output.txt', encoding="utf8", mode="a+")
                     fh.write(f"{str}")
-                    #fh.read()
     finally:
         f.close()
 
@@ -50,7 +44,7 @@ root.geometry("450x250")
 root.config(background = "white") 
 #buttons
 b_open = Button(root, text="open file", command=browseFiles)
-b_open.pack()        #grid(row=0, column=1)
+b_open.pack()
 read_file = Button(root, text="open in txt", command=browseFiles_txt)
 read_file.pack()
 #labels
